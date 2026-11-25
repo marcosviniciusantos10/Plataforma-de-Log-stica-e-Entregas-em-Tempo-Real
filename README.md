@@ -21,17 +21,21 @@ tests/
 ```bash
 cp .env.example .env        # ajuste as senhas
 docker compose up -d --build
-curl http://localhost:8000/health
+curl http://localhost:8000/health        # liveness
+curl http://localhost:8000/health/ready  # DB, Redis e RabbitMQ
 ```
 
-O container da API roda `alembic upgrade head` antes de iniciar.
+O container da API roda `alembic upgrade head` antes de iniciar, como usuário sem privilégios.
+
+> O `docker-compose.yml` é voltado para **desenvolvimento** (código montado como volume e `--reload`).
+> Em produção, defina `APP_ENV=production` (desativa `/docs`) e use senhas fortes no `.env`.
 
 | Serviço   | Porta(s)                 |
 |-----------|--------------------------|
 | API       | 8000 (docs em `/docs`)   |
-| PostGIS   | 5432                     |
-| Redis     | 6379                     |
-| RabbitMQ  | 5672 · painel em 15672   |
+| PostGIS   | 5432 (só 127.0.0.1)      |
+| Redis     | 6379 (só 127.0.0.1, com senha) |
+| RabbitMQ  | 5672 · painel em 15672 (só 127.0.0.1) |
 
 ## Migrations
 

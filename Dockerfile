@@ -5,12 +5,17 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /code
 
+# Usuário sem privilégios para rodar a aplicação
+RUN useradd --create-home --uid 10001 app
+
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY alembic.ini .
-COPY migrations ./migrations
-COPY app ./app
+COPY --chown=app:app alembic.ini .
+COPY --chown=app:app migrations ./migrations
+COPY --chown=app:app app ./app
+
+USER app
 
 EXPOSE 8000
 

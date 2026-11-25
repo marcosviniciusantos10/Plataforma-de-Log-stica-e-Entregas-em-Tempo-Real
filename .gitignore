@@ -7,9 +7,24 @@ venv/
 .mypy_cache/
 .ruff_cache/
 *.egg-info/
+.coverage
+htmlcov/
 
-# Ambiente
+# Ambiente e segredos (nunca versionar)
 .env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Overrides locais
+docker-compose.override.yml
+
+# Dados e logs locais
+*.log
+*.sqlite3
 
 # Ferramentas locais
 .maestri/

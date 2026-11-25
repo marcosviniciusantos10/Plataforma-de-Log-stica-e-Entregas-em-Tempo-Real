@@ -1,0 +1,17 @@
+.env
+.env.*
+.git
+.maestri
+.venv
+venv
+__pycache__
+*.py[cod]
+.pytest_cache
+.coverage
+htmlcov
+tests
+*.pem
+*.key
+*.p12
+*.pfx
+docker-compose.override.yml
