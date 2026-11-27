@@ -8,3 +8,6 @@ geoalchemy2==0.21.0
 alembic==1.20.1
 redis==8.2.0
 aio-pika==10.2.3
+argon2-cffi==25.1.0
+PyJWT==2.15.1
+email-validator==2.4.0

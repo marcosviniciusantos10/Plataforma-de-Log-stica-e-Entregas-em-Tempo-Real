@@ -1,1 +1,3 @@
-# Modelos de domínio (entregas, rotas, motoristas...) serão adicionados nas próximas tasks.
+from app.models.user import Role, User
+
+__all__ = ["Role", "User"]

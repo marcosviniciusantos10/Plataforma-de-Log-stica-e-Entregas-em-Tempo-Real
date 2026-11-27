@@ -14,6 +14,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY --chown=app:app alembic.ini .
 COPY --chown=app:app migrations ./migrations
 COPY --chown=app:app app ./app
+COPY --chown=app:app scripts ./scripts
 
 USER app
 
